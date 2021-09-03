@@ -1,7 +1,9 @@
 #include <iostream>
- //Blank A
+#include <vector>
+using namespace std;
+
 class node {
- //Blank B	
+    public:
  	int val;
  	node* next;
 };
@@ -11,22 +13,22 @@ void create_LL(vector<node*>& mylist, int node_num){
 
     //create a set of nodes
     for (int i = 0; i < node_num; i++) {
-        //Blank C
-        mylist[i].val = i;
-        mylist[i].next = NULL;
+        mylist[i] = new node();
+        mylist[i]->val = i;
+        mylist[i]->next = NULL;
     }
 
     //create a linked list
-    for (int i = 0; i < node_num; i++) {
-        mylist[i].next = mylist[i+1];
+    for (int i = 0; i < node_num-1; i++) {
+        mylist[i]->next = mylist[i+1];
     }
 }
 
 int sum_LL(node* ptr) {
     int ret = 0;
     while(ptr) {
-        ret += ptr.val;
-        ptr = ptr.next;
+        ret += ptr->val;
+        ptr = ptr->next;
     }
     return ret;
 }
