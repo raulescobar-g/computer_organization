@@ -1,8 +1,10 @@
-#include "Ackerman.h"
-#include "BuddyAllocator.h"
+//#include "Ackerman.h"
+//#include "BuddyAllocator.h"
 #include <unistd.h>
+#include <iostream>
+using namespace std;
 
-void easytest(BuddyAllocator* ba){
+/* void easytest(BuddyAllocator* ba){
 	// be creative here
 	// know what to expect after every allocation/deallocation cycle
 
@@ -16,39 +18,45 @@ void easytest(BuddyAllocator* ba){
 	ba->free (mem); // give back the memory you just allocated
 	ba->printlist(); // shouldn't the list now look like as in the beginning
 
-}
+} */
 
 int main(int argc, char ** argv) {
 
-	int c = 0, blocksize = 128,memsize = 512 * 1024;
-  	while (c = getopt(argc,argv,"b:s:") != -1) {
+	int c, 
+		blocksize = 128,
+		memsize = 512 * 1024;
+
+  	while (((c = getopt(argc,argv,"b:s:")) != -1)) {
 		switch (c){
 			case 'b':
 				blocksize = atoi(optarg);
 				break;
 			case 's':
 				memsize = atoi(optarg);
+				break;
 			case '?':
-				std::cout<<"requires arg";
+				std::cout<<"Only -b or -s flag are valid"<<std::endl;
+				return 0;
 			default:
-				std::cout<<optopt<<","<<optarg<<std::endl;
+				std::cout<<"How did you even get to this error bro?"<<std::endl;
 		}
   	}
-	std::cout<<blocksize<<"---"<<memsize<<std::endl;
 
-  	int basic_block_size = 128, memory_length = 128 * 1024 * 1024;
+	std::cout<<"BlockSize: "<<blocksize<<std::endl<<"MemorySize: "<<memsize<<std::endl;
 
-	// create memory manager
-	BuddyAllocator * allocator = new BuddyAllocator(basic_block_size, memory_length);
+  	// int basic_block_size = 128, memory_length = 128 * 1024 * 1024;
 
-	// the following won't print anything until you start using FreeList and replace the "new" with your own implementation
-	easytest (allocator);
+	// // create memory manager
+	// BuddyAllocator * allocator = new BuddyAllocator(basic_block_size, memory_length);
+
+	// // the following won't print anything until you start using FreeList and replace the "new" with your own implementation
+	// easytest (allocator);
 
 	
-	// stress-test the memory manager, do this only after you are done with small test cases
-	Ackerman* am = new Ackerman ();
-	am->test(allocator); // this is the full-fledged test. 
+	// // stress-test the memory manager, do this only after you are done with small test cases
+	// Ackerman* am = new Ackerman ();
+	// am->test(allocator); // this is the full-fledged test. 
 	
-	// destroy memory manager
-	delete allocator;
+	// // destroy memory manager
+	// delete allocator;
 }
