@@ -54,6 +54,17 @@ class LinkedList{
 			iter->next = ahead->next;
 			ahead->next = nullptr;
 		}
+
+		bool find(BlockHeader* b){
+			BlockHeader* iter = head;
+			while (iter != nullptr){
+				if (iter == b){
+					return true;
+				}
+				iter = iter->next;
+			}
+			return false;
+		}
 };
 
 

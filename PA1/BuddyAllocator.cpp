@@ -21,7 +21,7 @@ bool BuddyAllocator::arebuddies (BlockHeader* block1, BlockHeader* block2){
 
 BlockHeader* BuddyAllocator::merge(BlockHeader* block1, BlockHeader* block2){
 	int index = (int) log2(ceil( (double) (block1->block_size) / basic_block_size)); // this might be wrong lmao
-	
+
 	FreeList[index].remove(block1);
 	FreeList[index].remove(block2);
 
@@ -38,13 +38,11 @@ BlockHeader* BuddyAllocator::split(BlockHeader* b){
 	b->next = nullptr;
 
 	BlockHeader* sh = getbuddy(b);
-	sh->next = nullptr;
-	sh->block_size = b->block_size;
-	//BlockHeader* temp = new (sh) BlockHeader (b->block_size);
-	return sh;
+	BlockHeader* temp = new (sh) BlockHeader (b->block_size);
+	return temp; //could be sh not temp
 }
 
-BuddyAllocator::BuddyAllocator (int _basic_block_size, int _total_memory_length){
+BuddyAllocator::BuddyAllocator(int _basic_block_size, int _total_memory_length){
 	total_memory_size = _total_memory_length; 
 	basic_block_size = _basic_block_size;
 
@@ -59,7 +57,7 @@ BuddyAllocator::BuddyAllocator (int _basic_block_size, int _total_memory_length)
 	BlockHeader* h = new (start) BlockHeader(total_memory_size);
 }
 
-BuddyAllocator::~BuddyAllocator (){
+BuddyAllocator::~BuddyAllocator(){
 	delete [] start;
 }
 
@@ -74,12 +72,15 @@ char* BuddyAllocator::alloc(int _length) {
 		return (char*) (b+1);
 	}
 	else {
-		int const_index = index;
+
+		const int const_index = index;
+
 		for (;index < FreeList.size() ; index++){
 			if (FreeList[index].head != nullptr){
 				break;
 			}
 		}
+
 		if (index >= FreeList.size()){
 			return nullptr;
 		}
@@ -96,12 +97,23 @@ char* BuddyAllocator::alloc(int _length) {
 }
 
 int BuddyAllocator::free(char* _a) {
-  //shift _a from the writable memory to the blockheader with metadata
+  	//shift _a from the writable memory to the blockheader with metadata
 	//check if block to be deleted is in FreeList
 	//add block to free list
-	//if buddy is free merge recursively 
+	//if buddy is free merge recursively
+	BlockHeader * a =  (BlockHeader*) _a;
+	BlockHeader * b = (BlockHeader*) (a-1);
 
-  return 0;
+	int index = ceil( log2( (double) b->block_size / basic_block_size));
+
+	if (!FreeList[index].find(b)) {
+
+	}
+
+
+
+
+  return 1;
 }
 
 void BuddyAllocator::printlist (){
