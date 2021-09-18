@@ -4,7 +4,7 @@
 using namespace std;
 
 BlockHeader* BuddyAllocator::getbuddy (BlockHeader * addr){
-	return (BlockHeader*)( (int)((char*)addr - start) ^ addr->block_size + start);
+	return (BlockHeader*)( ((int)((char*)addr - start) ^ addr->block_size) + start);
 }
 
 bool BuddyAllocator::arebuddies (BlockHeader* block1, BlockHeader* block2){
