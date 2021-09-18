@@ -4,32 +4,16 @@
 using namespace std;
 
 BlockHeader* BuddyAllocator::getbuddy (BlockHeader * addr){
-	return (BlockHeader*) ((char*)addr + addr->block_size); 
+	return (BlockHeader*)( (int)((char*)addr - start) ^ addr->block_size + start);
 }
 
 bool BuddyAllocator::arebuddies (BlockHeader* block1, BlockHeader* block2){
-	if (block1 == getbuddy(block2)){
-		return true;
-	}
-	else if (block2 == getbuddy(block1)){
-		return true;
-	} 
-	else{
-		return false;
-	}
+	return (getbuddy(block1) == block2);
 }
 
 BlockHeader* BuddyAllocator::merge(BlockHeader* block1, BlockHeader* block2){
-	int index = (int) log2(ceil( (double) (block1->block_size) / basic_block_size)); // this might be wrong lmao
-
-	FreeList[index].remove(block1);
-	FreeList[index].remove(block2);
-
 	block1->block_size *= 2;
-	FreeList[index+1].insert(block1);
-
 	return block1;
-
 }
 
 BlockHeader* BuddyAllocator::split(BlockHeader* b){
@@ -69,6 +53,7 @@ char* BuddyAllocator::alloc(int _length) {
 
 	if (FreeList[index].head != nullptr){
 		BlockHeader* b = FreeList[index].remove();
+		b->isFree = 0;
 		return (char*) (b+1);
 	}
 	else {
@@ -92,26 +77,39 @@ char* BuddyAllocator::alloc(int _length) {
 			FreeList[index].insert(b);
 			FreeList[index].insert(shb);
 		}
-		return (char*) (FreeList[index].remove()+1);
+		BlockHeader* block = FreeList[index].remove();
+		block->isFree = 0;
+		return (char*) (block+1);
 	}
 }
 
 int BuddyAllocator::free(char* _a) {
-  	//shift _a from the writable memory to the blockheader with metadata
-	//check if block to be deleted is in FreeList
-	//add block to free list
-	//if buddy is free merge recursively
-	BlockHeader * a =  (BlockHeader*) _a;
-	BlockHeader * b = (BlockHeader*) (a-1);
+	BlockHeader * b = (BlockHeader*) (_a - sizeof(BlockHeader));
+	
+	while (true){
+		int size = b->block_size;
+		b->isFree = 1;
+		int index = log2( b->block_size / basic_block_size);
 
-	int index = ceil( log2( (double) b->block_size / basic_block_size));
+		if (index == FreeList.size()-1) {
+			FreeList[index].insert(b);
+			break;
+		}
 
-	if (!FreeList[index].find(b)) {
+		BlockHeader* buddy = getbuddy(b);
 
+		if (buddy->isFree) {
+			if (b > buddy){
+				std::swap(b,buddy);
+			}
+			FreeList[index].remove(buddy);
+			b = merge(b,buddy);
+		}
+		else{
+			FreeList[index+1].insert(b);
+			break;
+		}
 	}
-
-
-
 
   return 1;
 }

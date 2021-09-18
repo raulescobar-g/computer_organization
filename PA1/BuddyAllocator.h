@@ -13,9 +13,11 @@ class BlockHeader{
 		// think about what else should be included as member variables
 		int block_size;  // size of the block
 		BlockHeader* next; // pointer to the next block
+		char isFree;
 
 		BlockHeader(int _s = 0){
 			block_size = _s;
+			isFree = true;
 			next = nullptr;
 		}
 };
@@ -55,16 +57,6 @@ class LinkedList{
 			ahead->next = nullptr;
 		}
 
-		bool find(BlockHeader* b){
-			BlockHeader* iter = head;
-			while (iter != nullptr){
-				if (iter == b){
-					return true;
-				}
-				iter = iter->next;
-			}
-			return false;
-		}
 };
 
 
