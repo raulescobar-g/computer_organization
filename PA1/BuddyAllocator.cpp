@@ -1,27 +1,117 @@
 #include "BuddyAllocator.h"
 #include <iostream>
+#include <math.h>
 using namespace std;
 
-BuddyAllocator::BuddyAllocator (int _basic_block_size, int _total_memory_length){
-	
+BlockHeader* BuddyAllocator::getbuddy (BlockHeader * addr){
+	return (BlockHeader*)( ((int)((char*)addr - start) ^ addr->block_size) + start);
 }
 
-BuddyAllocator::~BuddyAllocator (){
-	
+bool BuddyAllocator::arebuddies (BlockHeader* block1, BlockHeader* block2){
+	return (getbuddy(block1) == block2);
 }
 
-char* BuddyAllocator::alloc(int _length) {
-  /* This preliminary implementation simply hands the call over the 
-     the C standard library! 
-     Of course this needs to be replaced by your implementation.
-  */
-  return new char [_length];
+BlockHeader* BuddyAllocator::merge(BlockHeader* block1, BlockHeader* block2){
+	block1->block_size *= 2;
+	return block1;
+}
+
+BlockHeader* BuddyAllocator::split(BlockHeader* b){
+	int bs = b->block_size;
+	b->block_size /= 2;
+	b->next = nullptr;
+
+	BlockHeader* sh = getbuddy(b);
+	BlockHeader* temp = new (sh) BlockHeader (b->block_size);
+	return temp; //could be sh not temp
+}
+
+BuddyAllocator::BuddyAllocator(int _basic_block_size, int _total_memory_length){
+	total_memory_size = _total_memory_length; 
+	basic_block_size = _basic_block_size;
+
+	start = new char[total_memory_size];
+
+	int l = log2(total_memory_size / basic_block_size);
+
+	for (int i = 0; i < l; i++){
+		FreeList.push_back(LinkedList());
+	}
+	FreeList.push_back(LinkedList((BlockHeader*) start)); // last element in LL
+	BlockHeader* h = new (start) BlockHeader(total_memory_size);
+}
+
+BuddyAllocator::~BuddyAllocator(){
+	delete [] start;
+}
+
+char* BuddyAllocator::alloc(int _length) { 
+  	int x = _length + sizeof(BlockHeader);
+	int index = (int) log2(ceil( (double) x / basic_block_size));
+
+	int blockSizeReturn = (1 << index) * basic_block_size;
+
+	if (FreeList[index].head != nullptr){
+		BlockHeader* b = FreeList[index].remove();
+		b->isFree = 0;
+		return (char*) (b+1);
+	}
+	else {
+
+		const int const_index = index;
+
+		for (;index < FreeList.size() ; index++){
+			if (FreeList[index].head != nullptr){
+				break;
+			}
+		}
+
+		if (index >= FreeList.size()){
+			return nullptr;
+		}
+
+		while (index > const_index){
+			BlockHeader* b = FreeList[index].remove();
+			BlockHeader* shb = split(b);
+			--index;
+			FreeList[index].insert(b);
+			FreeList[index].insert(shb);
+		}
+		BlockHeader* block = FreeList[index].remove();
+		block->isFree = 0;
+		return (char*) (block+1);
+	}
 }
 
 int BuddyAllocator::free(char* _a) {
-  /* Same here! */
-  delete _a;
-  return 0;
+	BlockHeader * b = (BlockHeader*) (_a - sizeof(BlockHeader));
+	
+	while (true){
+		int size = b->block_size;
+		b->isFree = 1;
+		int index = log2( b->block_size / basic_block_size);
+
+		if (index == FreeList.size()-1) {
+			FreeList[index].insert(b);
+			break;
+		}
+
+		BlockHeader* buddy = getbuddy(b);
+
+		if (buddy->isFree) {
+			if (b > buddy){
+				std::swap(b,buddy);
+			}
+			FreeList[index].remove(buddy);
+			b = merge(b,buddy);
+		}
+		else{
+			FreeList[index+1].insert(b);
+			break;
+		}
+	}
+
+  return 1;
 }
 
 void BuddyAllocator::printlist (){
