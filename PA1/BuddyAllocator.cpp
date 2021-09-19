@@ -49,7 +49,7 @@ BuddyAllocator::~BuddyAllocator(){
 
 char* BuddyAllocator::alloc(int _length) { 
   	int x = _length + sizeof(BlockHeader);
-	int index = (int) log2(ceil( (double) x / basic_block_size));
+	int index =  ceil(log2(ceil( (double) x / basic_block_size)));
 
 	int blockSizeReturn = (1 << index) * basic_block_size;
 
@@ -86,6 +86,9 @@ char* BuddyAllocator::alloc(int _length) {
 }
 
 int BuddyAllocator::free(char* _a) {
+	if (_a == nullptr){
+		return 1;
+	}
 	BlockHeader * b = (BlockHeader*) (_a - sizeof(BlockHeader));
 	
 	while (true){
@@ -108,7 +111,7 @@ int BuddyAllocator::free(char* _a) {
 			b = merge(b,buddy);
 		}
 		else{
-			FreeList[index].insert(b); //index could be index+1 idk
+			FreeList[index].insert(b);
 			break;
 		}
 	}

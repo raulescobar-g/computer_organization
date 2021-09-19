@@ -32,6 +32,22 @@ void easytest(BuddyAllocator* ba){
 	ba->free (mem2); // give back the memory you just allocated
 	ba->printlist();
 
+	std::cout<<std::endl<<"BOIG BOIG"<<std::endl;
+	char * bigBoi = ba->alloc(400*1024);
+	ba->printlist();
+	char * probe = ba->alloc(1);
+	ba->printlist();
+
+	
+	ba->free(bigBoi);
+	
+	ba->printlist();
+	
+	ba->free(probe);
+	
+	//ba->free(probe);
+	//ba->printlist();
+
 
 } 
 
