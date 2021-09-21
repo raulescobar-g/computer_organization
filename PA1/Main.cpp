@@ -9,46 +9,15 @@ void easytest(BuddyAllocator* ba){
 	// know what to expect after every allocation/deallocation cycle
 
 	// here are a few examples
-	std::cout<<"Initializing... Default memory allocation block "<<std::endl;
+	
 	ba->printlist();
 	// allocating a byte
-	std::cout<<"Allocating 3 seperate bytes"<<std::endl;
+	
 	char * mem = ba->alloc (1);
 	ba->printlist();
-	char * mem1 = ba->alloc(1);
-	ba->printlist();
-	char * mem2 = ba->alloc(1);
-	// now print again, how should the list look now
-	ba->printlist ();
-
-	std::cout<<"Freeing memory now"<<std::endl;
 
 	ba->free (mem); // give back the memory you just allocated
 	ba->printlist(); // shouldn't the list now look like as in the beginning
-
-	ba->free (mem1); // give back the memory you just allocated
-	ba->printlist();
-
-	ba->free (mem2); // give back the memory you just allocated
-	ba->printlist();
-
-	std::cout<<std::endl<<"BOIG BOIG"<<std::endl;
-	char * bigBoi = ba->alloc(400*1024);
-	ba->printlist();
-	char * probe = ba->alloc(1);
-	ba->printlist();
-
-	
-	ba->free(bigBoi);
-	
-	ba->printlist();
-	
-	ba->free(probe);
-	
-	//ba->free(probe);
-	//ba->printlist();
-
-
 } 
 
 int main(int argc, char ** argv) {
