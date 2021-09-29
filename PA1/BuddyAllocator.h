@@ -26,35 +26,56 @@ class LinkedList{
 	// this is a special linked list that is made out of BlockHeaders. 
 	public:
 		BlockHeader* head;		// you need a head of the list
+		int size;
 	public:
 
 		LinkedList(BlockHeader* h = nullptr){
 			head = h;
+			size = 0;
 		}
 
 		void insert (BlockHeader* b){	// adds a block to the list
 			b->next = head;
 			head = b;
+			size += 1;
 		}
 
 		BlockHeader* remove (){  // removes a block from the list
 			assert (head != nullptr);
 			BlockHeader* b = head;
-			head = head->next;
+			if (size == 1){
+				head = nullptr;
+			}
+			else{
+				head = head->next;
+			}
+			size -= 1;
 			return b;
 		}
 
 		void remove (BlockHeader* b){  // removes a block from the list
-			BlockHeader * iter = nullptr;
 			BlockHeader * ahead = head;
 
-			while (ahead != b){
-				iter = ahead;
-				ahead = ahead->next;
+			if (size < 2){
+				head = nullptr;
 			}
+			else if (ahead == b){
+				head = head->next;
+				size-=1;
+			}
+			else {
+				BlockHeader * iter = nullptr;
+				while (ahead != nullptr && ahead != b){
+					iter = ahead;
+					ahead = ahead->next;
+				}
 
-			iter->next = ahead->next;
-			ahead->next = nullptr;
+				if (ahead == b){
+					iter->next = ahead->next;
+					ahead->next = nullptr;
+					size -=1;
+				}
+			}
 		}
 
 };

@@ -4,7 +4,9 @@
 using namespace std;
 
 BlockHeader* BuddyAllocator::getbuddy (BlockHeader * addr){
-	return (BlockHeader*)( ((int)((char*)addr - start) ^ addr->block_size) + start);
+	int offset = (int)((char *) addr - start);
+	int buddy_offset = offset ^ addr->block_size;
+	return (BlockHeader*) (start + buddy_offset);
 }
 
 bool BuddyAllocator::arebuddies (BlockHeader* block1, BlockHeader* block2){
@@ -47,7 +49,7 @@ BuddyAllocator::~BuddyAllocator(){
 
 char* BuddyAllocator::alloc(int _length) { 
   	int x = _length + sizeof(BlockHeader);
-	int index = (int) log2(ceil( (double) x / basic_block_size));
+	int index =  ceil(log2(ceil( (double) x / basic_block_size)));
 
 	int blockSizeReturn = (1 << index) * basic_block_size;
 
@@ -74,8 +76,8 @@ char* BuddyAllocator::alloc(int _length) {
 			BlockHeader* b = FreeList[index].remove();
 			BlockHeader* shb = split(b);
 			--index;
-			FreeList[index].insert(b);
 			FreeList[index].insert(shb);
+			FreeList[index].insert(b);
 		}
 		BlockHeader* block = FreeList[index].remove();
 		block->isFree = 0;
@@ -84,12 +86,15 @@ char* BuddyAllocator::alloc(int _length) {
 }
 
 int BuddyAllocator::free(char* _a) {
+	if (_a == nullptr){
+		return 1;
+	}
 	BlockHeader * b = (BlockHeader*) (_a - sizeof(BlockHeader));
 	
 	while (true){
 		int size = b->block_size;
 		b->isFree = 1;
-		int index = log2( b->block_size / basic_block_size);
+		int index = (int) log2(ceil( (double) b->block_size / basic_block_size));
 
 		if (index == FreeList.size()-1) {
 			FreeList[index].insert(b);
@@ -99,19 +104,19 @@ int BuddyAllocator::free(char* _a) {
 		BlockHeader* buddy = getbuddy(b);
 
 		if (buddy->isFree) {
+			FreeList[index].remove(buddy);
 			if (b > buddy){
 				std::swap(b,buddy);
 			}
-			FreeList[index].remove(buddy);
 			b = merge(b,buddy);
 		}
 		else{
-			FreeList[index+1].insert(b);
+			FreeList[index].insert(b);
 			break;
 		}
 	}
 
-  return 1;
+  return 0;
 }
 
 void BuddyAllocator::printlist (){
