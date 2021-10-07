@@ -1,0 +1,217 @@
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0 168008 12708 ?        Ss   05:46   0:05 /lib/systemd/systemd --system --deserialize 31
+root           2  0.0  0.0      0     0 ?        S    05:46   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   05:46   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   05:46   0:00 [rcu_par_gp]
+root           6  0.0  0.0      0     0 ?        I<   05:46   0:00 [kworker/0:0H-events_highpri]
+root           9  0.0  0.0      0     0 ?        I<   05:46   0:00 [mm_percpu_wq]
+root          10  0.0  0.0      0     0 ?        S    05:46   0:00 [rcu_tasks_rude_]
+root          11  0.0  0.0      0     0 ?        S    05:46   0:00 [rcu_tasks_trace]
+root          12  0.0  0.0      0     0 ?        S    05:46   0:04 [ksoftirqd/0]
+root          13  0.0  0.0      0     0 ?        I    05:46   0:11 [rcu_sched]
+root          14  0.0  0.0      0     0 ?        S    05:46   0:00 [migration/0]
+root          15  0.0  0.0      0     0 ?        S    05:46   0:00 [idle_inject/0]
+root          16  0.0  0.0      0     0 ?        S    05:46   0:00 [cpuhp/0]
+root          17  0.0  0.0      0     0 ?        S    05:46   0:00 [kdevtmpfs]
+root          18  0.0  0.0      0     0 ?        I<   05:46   0:00 [netns]
+root          19  0.0  0.0      0     0 ?        I<   05:46   0:00 [inet_frag_wq]
+root          20  0.0  0.0      0     0 ?        S    05:46   0:00 [kauditd]
+root          21  0.0  0.0      0     0 ?        S    05:46   0:00 [khungtaskd]
+root          22  0.0  0.0      0     0 ?        S    05:46   0:00 [oom_reaper]
+root          23  0.0  0.0      0     0 ?        I<   05:46   0:00 [writeback]
+root          24  0.0  0.0      0     0 ?        S    05:46   0:02 [kcompactd0]
+root          25  0.0  0.0      0     0 ?        SN   05:46   0:00 [ksmd]
+root          26  0.0  0.0      0     0 ?        SN   05:46   0:00 [khugepaged]
+root          72  0.0  0.0      0     0 ?        I<   05:46   0:00 [kintegrityd]
+root          73  0.0  0.0      0     0 ?        I<   05:46   0:00 [kblockd]
+root          74  0.0  0.0      0     0 ?        I<   05:46   0:00 [blkcg_punt_bio]
+root          75  0.0  0.0      0     0 ?        I<   05:46   0:00 [tpm_dev_wq]
+root          76  0.0  0.0      0     0 ?        I<   05:46   0:00 [ata_sff]
+root          77  0.0  0.0      0     0 ?        I<   05:46   0:00 [md]
+root          78  0.0  0.0      0     0 ?        I<   05:46   0:00 [edac-poller]
+root          79  0.0  0.0      0     0 ?        I<   05:46   0:00 [devfreq_wq]
+root          80  0.0  0.0      0     0 ?        S    05:46   0:00 [watchdogd]
+root          82  0.0  0.0      0     0 ?        I<   05:46   0:02 [kworker/0:1H-kblockd]
+root          84  0.0  0.0      0     0 ?        S    05:46   0:00 [kswapd0]
+root          85  0.0  0.0      0     0 ?        S    05:46   0:00 [ecryptfs-kthrea]
+root          87  0.0  0.0      0     0 ?        I<   05:46   0:00 [kthrotld]
+root          88  0.0  0.0      0     0 ?        I<   05:46   0:00 [acpi_thermal_pm]
+root          89  0.0  0.0      0     0 ?        S    05:46   0:00 [scsi_eh_0]
+root          90  0.0  0.0      0     0 ?        I<   05:46   0:00 [scsi_tmf_0]
+root          91  0.0  0.0      0     0 ?        S    05:46   0:00 [scsi_eh_1]
+root          92  0.0  0.0      0     0 ?        I<   05:46   0:00 [scsi_tmf_1]
+root          94  0.0  0.0      0     0 ?        I<   05:46   0:00 [vfio-irqfd-clea]
+root          96  0.0  0.0      0     0 ?        I<   05:46   0:00 [ipv6_addrconf]
+root         105  0.0  0.0      0     0 ?        I<   05:46   0:00 [kstrp]
+root         108  0.0  0.0      0     0 ?        I<   05:46   0:00 [zswap-shrink]
+root         109  0.0  0.0      0     0 ?        I<   05:46   0:00 [kworker/u3:0]
+root         114  0.0  0.0      0     0 ?        I<   05:46   0:00 [charger_manager]
+root         157  0.0  0.0      0     0 ?        S    05:46   0:00 [scsi_eh_2]
+root         160  0.0  0.0      0     0 ?        I<   05:46   0:00 [scsi_tmf_2]
+root         189  0.0  0.0      0     0 ?        S    05:46   0:00 [jbd2/sda1-8]
+root         190  0.0  0.0      0     0 ?        I<   05:46   0:00 [ext4-rsv-conver]
+root         255  0.0  0.0      0     0 ?        S    05:46   0:01 [irq/18-vmwgfx]
+root         256  0.0  0.0      0     0 ?        I<   05:46   0:00 [ttm_swap]
+root         258  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc0]
+root         260  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc1]
+root         262  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc2]
+root         263  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc3]
+root         264  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc4]
+root         265  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc5]
+root         268  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc6]
+root         269  0.0  0.0      0     0 ?        S    05:46   0:00 [card0-crtc7]
+root         270  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop1]
+root         271  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop2]
+root         275  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop3]
+root         276  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop4]
+root         289  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop5]
+root         292  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop6]
+root         303  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop7]
+root         306  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop8]
+root         307  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop9]
+root         310  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop10]
+root         311  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop11]
+root         314  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop12]
+root         316  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop13]
+root         344  0.0  0.0      0     0 ?        I<   05:46   0:00 [iprt-VBoxWQueue]
+root         358  0.0  0.0      0     0 ?        I<   05:46   0:00 [cryptd]
+root         559  0.0  0.0      0     0 ?        S    05:46   0:00 [jbd2/sda4-8]
+root         560  0.0  0.0      0     0 ?        I<   05:46   0:00 [ext4-rsv-conver]
+root         617  0.0  0.0 249156  8000 ?        Ssl  05:46   0:01 /usr/lib/accountsservice/accounts-daemon
+root         618  0.0  0.0   2556   952 ?        Ss   05:46   0:00 /usr/sbin/acpid
+root         622  0.0  0.0  18128  3056 ?        Ss   05:46   0:00 /usr/sbin/cron -f -P
+message+     625  0.0  0.0  10980  6968 ?        Ss   05:46   0:04 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         627  0.0  0.1 346672 20300 ?        Ssl  05:46   0:09 /usr/sbin/NetworkManager --no-daemon
+root         638  0.0  0.1  48180 21472 ?        Ss   05:46   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         646  0.0  0.0 245856  6844 ?        Ssl  05:46   0:00 /usr/libexec/power-profiles-daemon
+syslog       651  0.0  0.0 221216  4892 ?        Ssl  05:46   0:00 /usr/sbin/rsyslogd -n -iNONE
+root         655  0.0  0.1 680772 32084 ?        Ssl  05:46   0:05 /usr/lib/snapd/snapd
+root         656  0.0  0.0 245664  7016 ?        Ssl  05:46   0:00 /usr/libexec/switcheroo-control
+root         657  0.0  0.0  22948  8656 ?        Ss   05:46   0:00 /lib/systemd/systemd-logind
+root         658  0.0  0.0 394420 13536 ?        Ssl  05:46   0:00 /usr/libexec/udisks2/udisksd
+root         669  0.0  0.0  14740  5208 ?        Ss   05:46   0:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+root         737  0.0  0.1 126288 23760 ?        Ssl  05:46   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+whoopsie     833  0.0  0.0 328484 15500 ?        Ssl  05:46   0:00 /usr/bin/whoopsie -f
+kernoops     844  0.0  0.0  13524   468 ?        Ss   05:46   0:00 /usr/sbin/kerneloops --test
+kernoops     846  0.0  0.0  13524  2528 ?        Ss   05:46   0:00 /usr/sbin/kerneloops
+root        1028  0.0  0.0 250400  9152 ?        Ssl  05:46   0:00 /usr/sbin/gdm3
+rtkit       1081  0.0  0.0 153848  2992 ?        SNsl 05:46   0:00 /usr/libexec/rtkit-daemon
+root        1177  0.0  0.0 258356  8616 ?        Ssl  05:46   0:00 /usr/libexec/upowerd
+root        1270  0.0  0.0      0     0 ?        S<   05:46   0:00 [loop14]
+root        1368  0.0  0.3 455664 63196 ?        Ssl  05:46   0:12 /usr/libexec/packagekitd
+colord      1497  0.0  0.0 607084 14000 ?        Ssl  05:46   0:00 /usr/libexec/colord
+root        1551  0.0  0.0 325772 11336 ?        Sl   05:46   0:00 gdm-session-worker [pam/gdm-password]
+osboxes     1556  0.0  0.0  17156 10888 ?        Ss   05:46   0:01 /lib/systemd/systemd --user
+osboxes     1558  0.0  0.0 101952  4888 ?        S    05:46   0:00 (sd-pam)
+osboxes     1565  0.0  0.0  90684  5932 ?        S<sl 05:46   0:00 /usr/bin/pipewire
+osboxes     1566  0.0  0.0  82828  5572 ?        S<sl 05:46   0:00 /usr/bin/pipewire-media-session
+osboxes     1568  0.0  0.0 471464  8048 ?        Sl   05:46   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+osboxes     1571  0.0  0.1 1483128 19632 ?       S<sl 05:46   0:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+osboxes     1573  0.0  0.1 595028 25080 ?        SNsl 05:46   0:00 /usr/libexec/tracker-miner-fs
+osboxes     1575  0.0  0.0 171604  6232 tty2     Ssl+ 05:46   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+osboxes     1577  0.0  0.0  11912  8144 ?        Ss   05:46   0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+osboxes     1581  0.0  0.0 229916 15392 tty2     Sl+  05:46   0:00 /usr/libexec/gnome-session-binary --systemd --session=ubuntu
+osboxes     1584  0.0  0.0 249732  8128 ?        Ssl  05:46   0:00 /usr/libexec/gvfsd
+osboxes     1592  0.0  0.0 379668  6672 ?        Sl   05:46   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f -o big_writes
+osboxes     1597  0.0  0.0 325228 10268 ?        Ssl  05:46   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+osboxes     1640  0.0  0.0 245652  6744 ?        Ssl  05:46   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+osboxes     1644  0.0  0.0 246576  7076 ?        Ssl  05:46   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+osboxes     1648  0.0  0.0 246468  6836 ?        Ssl  05:46   0:00 /usr/libexec/gvfs-goa-volume-monitor
+osboxes     1652  0.0  0.4 781432 75576 ?        SLl  05:46   0:02 /usr/libexec/goa-daemon
+osboxes     1670  0.0  0.0 398480  9128 ?        Sl   05:46   0:00 /usr/libexec/goa-identity-service
+osboxes     1683  0.0  0.0 100964  4944 ?        Ssl  05:46   0:00 /usr/libexec/gnome-session-ctl --monitor
+osboxes     1685  0.0  0.0 322944  7580 ?        Ssl  05:46   0:02 /usr/libexec/gvfs-afc-volume-monitor
+osboxes     1698  0.0  0.1 525804 17620 ?        Ssl  05:46   0:00 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+osboxes     1722  2.5  4.5 4131568 739444 ?      Ssl  05:46  20:36 /usr/bin/gnome-shell
+osboxes     1726  0.0  0.0 306768  6900 ?        Sl   05:46   0:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+osboxes     1733  0.0  0.0   8252  4668 ?        S    05:46   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+osboxes     1746  0.1  0.5 496300 92120 ?        Sl   05:46   1:19 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.ZRV290 -listen 4 -listen 5 -displayfd 6 -initfd 7
+osboxes     1766  0.0  0.0 245564  6444 ?        Ssl  05:46   0:00 /usr/libexec/xdg-permission-store
+osboxes     1771  0.0  0.1 664280 20512 ?        Sl   05:46   0:00 /usr/libexec/gnome-shell-calendar-server
+osboxes     1777  0.0  0.2 689868 35024 ?        Ssl  05:46   0:00 /usr/libexec/evolution-source-registry
+osboxes     1784  0.0  0.0 157608  6080 ?        Sl   05:46   0:00 /usr/libexec/dconf-service
+osboxes     1787  0.0  0.0 172276  6820 ?        Ssl  05:46   0:00 /usr/libexec/gvfsd-metadata
+osboxes     1796  0.0  0.2 761800 44828 ?        Ssl  05:46   0:01 /usr/libexec/evolution-calendar-factory
+osboxes     1808  0.0  0.1 690876 29968 ?        Ssl  05:46   0:00 /usr/libexec/evolution-addressbook-factory
+osboxes     1835  0.0  0.0 163116  7400 ?        Sl   05:46   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+osboxes     1838  0.0  0.1 2534592 27956 ?       Sl   05:46   0:00 /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications
+osboxes     1845  0.0  0.0 323980  8400 ?        Sl   05:46   0:00 /usr/libexec/gvfsd-trash --spawner :1.3 /org/gtk/gvfs/exec_spaw/0
+osboxes     1856  0.0  0.0 319608  6824 ?        Ssl  05:46   0:00 /usr/libexec/gsd-a11y-settings
+osboxes     1859  0.0  0.1 382972 25860 ?        Ssl  05:46   0:00 /usr/libexec/gsd-color
+osboxes     1860  0.0  0.0 382056 16240 ?        Ssl  05:46   0:00 /usr/libexec/gsd-datetime
+osboxes     1866  0.0  0.0 320484  7572 ?        Ssl  05:46   0:01 /usr/libexec/gsd-housekeeping
+osboxes     1870  0.0  0.1 348044 23420 ?        Ssl  05:46   0:00 /usr/libexec/gsd-keyboard
+osboxes     1871  0.0  0.1 652568 28508 ?        Ssl  05:46   0:00 /usr/libexec/gsd-media-keys
+osboxes     1874  0.0  0.1 651296 28772 ?        Ssl  05:46   0:00 /usr/libexec/gsd-power
+osboxes     1876  0.0  0.0 258092 11448 ?        Ssl  05:46   0:00 /usr/libexec/gsd-print-notifications
+osboxes     1879  0.0  0.0 467048  6696 ?        Ssl  05:46   0:00 /usr/libexec/gsd-rfkill
+osboxes     1884  0.0  0.0 245464  6336 ?        Ssl  05:46   0:00 /usr/libexec/gsd-screensaver-proxy
+osboxes     1890  0.0  0.0 475116 10284 ?        Ssl  05:46   0:00 /usr/libexec/gsd-sharing
+osboxes     1900  0.0  0.0 468992  8164 ?        Ssl  05:46   0:00 /usr/libexec/gsd-smartcard
+osboxes     1907  0.0  0.0 331084 10056 ?        Ssl  05:46   0:00 /usr/libexec/gsd-sound
+osboxes     1912  0.0  0.4 817248 68264 ?        Sl   05:46   0:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+osboxes     1915  0.0  0.1 347740 23312 ?        Ssl  05:46   0:00 /usr/libexec/gsd-wacom
+osboxes     1942  0.0  0.0 232036  6628 ?        Sl   05:46   0:00 /usr/libexec/gsd-disk-utility-notify
+osboxes     1960  0.0  0.0 350232 15408 ?        Sl   05:46   0:00 /usr/libexec/gsd-printer
+osboxes     2013  0.0  0.0  29284   376 ?        S    05:46   0:00 /usr/bin/VBoxClient --clipboard
+osboxes     2014  0.0  0.0 161552  4296 ?        Sl   05:46   0:00 /usr/bin/VBoxClient --clipboard
+osboxes     2036  0.0  0.0  29284   376 ?        S    05:46   0:00 /usr/bin/VBoxClient --seamless
+osboxes     2037  0.0  0.0 161520  2772 ?        Sl   05:46   0:03 /usr/bin/VBoxClient --seamless
+osboxes     2043  0.0  2.7 1217212 445436 ?      Sl   05:46   0:16 /snap/snap-store/547/usr/bin/snap-store --gapplication-service
+osboxes     2062  0.0  0.0  29284   376 ?        S    05:46   0:00 /usr/bin/VBoxClient --draganddrop
+osboxes     2063  0.2  0.0 162036  2580 ?        Sl   05:46   2:22 /usr/bin/VBoxClient --draganddrop
+osboxes     2072  0.0  0.0  29284   376 ?        S    05:46   0:00 /usr/bin/VBoxClient --vmsvga
+root        2073  0.0  0.0  86096   984 ?        S    05:46   0:00 [VBoxDRMClient]
+osboxes     2081  0.0  0.0 541244  6796 ?        Ssl  05:46   0:00 /usr/libexec/xdg-document-portal
+root        2086  0.0  0.0   2616  2008 ?        Ss   05:46   0:00 fusermount -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+osboxes     2125  0.0  0.0 323948 11588 ?        Sl   05:46   0:00 ibus-daemon --panel disable -r --xim
+osboxes     2127  0.0  0.3 762688 61000 ?        Ssl  05:46   0:00 /usr/libexec/gsd-xsettings
+osboxes     2151  0.0  0.0 172680  7340 ?        Sl   05:46   0:00 /usr/libexec/ibus-memconf
+osboxes     2153  0.0  0.1 354532 28824 ?        Sl   05:46   0:00 /usr/libexec/ibus-extension-gtk3
+osboxes     2155  0.0  0.1 204392 26928 ?        Sl   05:46   0:00 /usr/libexec/ibus-x11 --kill-daemon
+osboxes     2159  0.0  0.0 246480  7332 ?        Sl   05:46   0:00 /usr/libexec/ibus-portal
+osboxes     2229  0.0  0.0 172668  7408 ?        Sl   05:46   0:00 /usr/libexec/ibus-engine-simple
+osboxes     2253  0.0  0.0 632900 13644 ?        Ssl  05:46   0:01 /usr/libexec/xdg-desktop-portal
+osboxes     2257  0.0  0.1 387428 29064 ?        Ssl  05:46   0:00 /usr/libexec/xdg-desktop-portal-gtk
+osboxes     3588  0.0  0.1 354192 31352 ?        Sl   05:47   0:01 update-notifier
+osboxes     3824  0.0  0.0   5964  3700 ?        S    05:47   0:00 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+systemd+   37052  0.0  0.0  24236 13508 ?        Ss   07:59   0:00 /lib/systemd/systemd-resolved
+root       37055  0.0  0.1  48592 20672 ?        S<s  07:59   0:00 /lib/systemd/systemd-journald
+systemd+   37152  0.0  0.0  88452  6216 ?        Ssl  07:59   0:00 /lib/systemd/systemd-timesyncd
+root       39161  0.0  0.0 252340 11432 ?        Ssl  07:59   0:00 /usr/libexec/polkitd --no-debug
+root       39167  0.0  0.0 316452 11264 ?        Ssl  07:59   0:00 /usr/sbin/ModemManager
+avahi      42874  0.0  0.0   7520  3728 ?        Ss   08:00   0:00 avahi-daemon: running [osboxes.local]
+avahi      42875  0.0  0.0   7252   352 ?        S    08:00   0:00 avahi-daemon: chroot helper
+root       77707  0.0  0.0      0     0 ?        I<   08:06   0:00 [xfsalloc]
+root       77708  0.0  0.0      0     0 ?        I<   08:06   0:00 [xfs_mru_cache]
+root       77711  0.0  0.0      0     0 ?        S    08:06   0:00 [jfsIO]
+root       77712  0.0  0.0      0     0 ?        S    08:06   0:00 [jfsCommit]
+root       77713  0.0  0.0      0     0 ?        S    08:06   0:00 [jfsSync]
+root       79391  0.0  0.0  23432  6208 ?        Ss   08:07   0:00 /lib/systemd/systemd-udevd
+osboxes   102834  0.1  0.9 38637064 161368 ?     RLsl 10:26   0:34 /snap/code/74/usr/share/code/code --no-sandbox --force-user-env --unity-launch
+osboxes   102836  0.0  0.2 372136 45680 ?        S    10:26   0:00 /snap/code/74/usr/share/code/code --type=zygote --no-zygote-sandbox --no-sandbox
+osboxes   102837  0.0  0.2 372136 45340 ?        S    10:26   0:00 /snap/code/74/usr/share/code/code --type=zygote --no-sandbox
+osboxes   102875  1.0  0.9 591852 155032 ?       Sl   10:26   5:42 /snap/code/74/usr/share/code/code --type=gpu-process --field-trial-handle=1251726774156312764,1577440660614133067,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-color-correct-rendering --no-sandbox --enable-crash-reporter=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel --global-crash-keys=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.60.1 --user-data-dir=/home/osboxes/.config/Code --gpu-preferences=UAAAAAAAAAAgAAAQAAAAAAAAAAAAAAAAAABgAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --use-gl=swiftshader-webgl --shared-files
+osboxes   102878  0.0  0.3 427708 60160 ?        Sl   10:26   0:00 /snap/code/74/usr/share/code/code --type=utility --utility-sub-type=network.mojom.NetworkService --field-trial-handle=1251726774156312764,1577440660614133067,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --lang=en-US --service-sandbox-type=none --no-sandbox --enable-crash-reporter=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel --global-crash-keys=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.60.1 --user-data-dir=/home/osboxes/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --shared-files=v8_context_snapshot_data:100
+osboxes   102895  1.1  2.7 57412504 445776 ?     Rl   10:26   6:17 /snap/code/74/usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --field-trial-handle=1251726774156312764,1577440660614133067,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-gpu-compositing --lang=en-US --enable-crash-reporter=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel --global-crash-keys=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.60.1 --user-data-dir=/home/osboxes/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/snap/code/74/usr/share/code/resources/app --no-sandbox --no-zygote --num-raster-threads=1 --renderer-client-id=6 --no-v8-untrusted-code-mitigations --shared-files=v8_context_snapshot_data:100 --vscode-window-config=vscode:e006057e-dd27-4c72-8565-274febefd8f0
+osboxes   102926  0.1  1.0 38222932 173596 ?     Sl   10:26   0:31 /snap/code/74/usr/share/code/code --inspect-port=0 /snap/code/74/usr/share/code/resources/app/out/bootstrap-fork --type=extensionHost --skipWorkspaceStorageLock
+osboxes   102939  0.0  0.7 38271204 129744 ?     Sl   10:26   0:11 /snap/code/74/usr/share/code/code --type=renderer --disable-color-correct-rendering --no-sandbox --field-trial-handle=1251726774156312764,1577440660614133067,131072 --disable-features=CookiesWithoutSameSiteMustBeSecure,SameSiteByDefaultCookies,SpareRendererForSitePerProcess --disable-gpu-compositing --lang=en-US --enable-crash-reporter=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel --global-crash-keys=f086f432-0c0f-4dfd-8853-2889e94422ae,no_channel,_companyName=Microsoft,_productName=VSCode,_version=1.60.1 --user-data-dir=/home/osboxes/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file --bypasscsp-schemes --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --streaming-schemes --app-path=/snap/code/74/usr/share/code/resources/app --no-sandbox --no-zygote --disable-blink-features=Auxclick --num-raster-threads=1 --renderer-client-id=8 --no-v8-untrusted-code-mitigations --shared-files=v8_context_snapshot_data:100 --vscode-window-config=vscode:8f59552e-6e59-4bbb-97e0-5fa455118ea2
+osboxes   102955  0.1  0.5 38204072 84160 ?      Sl   10:26   0:51 /snap/code/74/usr/share/code/code /snap/code/74/usr/share/code/resources/app/out/bootstrap-fork --type=ptyHost
+osboxes   102963  0.0  0.4 38189588 74024 ?      Rl   10:26   0:01 /snap/code/74/usr/share/code/code /snap/code/74/usr/share/code/resources/app/out/bootstrap-fork --type=watcherService
+osboxes   102986  0.0  0.3 723028 63356 ?        Sl   10:26   0:26 /home/osboxes/.vscode/extensions/ms-vscode.cpptools-1.6.0/bin/cpptools
+osboxes   103056  0.0  0.0  19752  5384 pts/0    Ss   10:26   0:00 /usr/bin/bash
+root      109680  0.0  0.5 527048 87392 ?        Ssl  16:19   0:01 /usr/libexec/fwupd/fwupd
+root      111600  0.0  0.0      0     0 ?        I    17:38   0:01 [kworker/0:1-events]
+root      111688  0.0  0.0  80664 14024 ?        Ss   17:38   0:00 /usr/sbin/cupsd -l
+root      111689  0.0  0.0 179076 12848 ?        Ssl  17:38   0:00 /usr/sbin/cups-browsed
+root      118751  0.0  0.0   6716  4592 ?        Ss   17:39   0:00 /usr/sbin/apache2 -k start
+www-data  118753  0.0  0.0 752844  4528 ?        Sl   17:39   0:00 /usr/sbin/apache2 -k start
+www-data  118754  0.0  0.0 752844  4528 ?        Sl   17:39   0:00 /usr/sbin/apache2 -k start
+root      139817  0.0  0.0      0     0 ?        I    18:27   0:00 [kworker/u2:2-events_power_efficient]
+root      141632  0.0  0.0      0     0 ?        I    18:41   0:00 [kworker/u2:0-events_unbound]
+osboxes   141663  0.0  0.4 2655316 67136 ?       Sl   18:44   0:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com -M 0 -D 72:27:1936:1711:1
+root      141726  0.0  0.0      0     0 ?        I    18:45   0:00 [kworker/0:2-events]
+root      141750  0.0  0.0      0     0 ?        I    18:47   0:00 [kworker/u2:1-events_power_efficient]
+osboxes   142725  0.0  0.4 4808948 76564 ?       Sl   19:02   0:00 /home/osboxes/.vscode/extensions/ms-vscode.cpptools-1.6.0/bin/cpptools-srv 102986 {0F6D6543-C88B-4CB7-8693-1C24BB1DF9F0}
+osboxes   142991  0.0  0.0   6224  3696 pts/0    S+   19:11   0:00 ./a.out
+osboxes   143037  0.0  0.0  21092  3496 pts/0    R+   19:12   0:00 ps aux
