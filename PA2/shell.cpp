@@ -12,6 +12,7 @@
 using namespace std;
 /*
 double quotes special characters stuff
+username
 extra points stuff
 */
 
@@ -25,28 +26,11 @@ const std::string now() {
     return buf;
 }
 
-
 int Shell::execute(string pipes) {
     bool file_io = false;
     int fd;
     vector<string> parts = split(pipes); //words
     string slice;
-    
-    // bool quoted = false;
-    // string quote = "";
-    // for (int i = 0; i < parts.size(); ++i){
-        
-    //     if (parts[i][0] == '"' && !quoted){
-    //         quoted = true;
-    //         parts[i].erase(0,1);
-    //     }
-    //     if (parts[i][parts[i].size()-1] == '"' && quoted){
-    //         quoted = false;
-    //     }
-    //     if (quoted){
-    //         quote +=
-    //     }
-    // }
 
     for (int i = 0; i < parts.size(); ++i){
         if (trim(parts[i]) == "<"){
@@ -81,16 +65,12 @@ int Shell::execute(string pipes) {
     if (file_io){
         return 0;
     }
-    else if (parts[0] != "cd") {
+    else {
         char** args = vec_to_char_array(parts);
         execvp(args[0],args);
         return 0;
     }
     
-    else{
-        chdir(parts[1].c_str());
-        return 0;
-    }
     return 1;
 }
 
@@ -98,27 +78,49 @@ void Shell::execute_cmd(const string& inputline, bool bg){
     pipes = split(inputline, "|");
 
     for (int i = 0; i < pipes.size(); ++i) {
-        int fd[2];
-        pipe(fd);
-
-        int pid = fork();
-        if (pid == 0) {
-
-            if (i < pipes.size() -1){
-                dup2(fd[1], 1);
-            }
-
-            int result = execute(trim(pipes[i]));
+        vector<string> parts = split(pipes[i]);
+    
+        if (parts[0] == "cd"){
             
-        }
-        else {
-            if (!bg){
-                waitpid(pid,0,0);
-                dup2(fd[0], 0);
-                close(fd[1]);
+            if (parts[1] == "-"){
+                if (paths.size() >= 1){
+                    chdir(paths[paths.size() - 1].c_str());
+                    paths.pop_back();
+                }
+                else {
+                    cout<<"cd stack empty."<<endl;
+                }
             }
             else {
-                bgs.push_back(pid);
+                char cwd[PATH_MAX];
+                getcwd(cwd, sizeof(cwd));
+                paths.push_back(cwd);
+                
+                chdir(parts[1].c_str());
+            }
+        }
+        else{
+            int fd[2];
+            pipe(fd);
+            int pid = fork();
+            if (pid == 0) {
+
+                if (i < pipes.size() -1){
+                    dup2(fd[1], 1);
+                }
+
+                int result = execute(trim(pipes[i]));
+                
+            }
+            else {
+                if (!bg){
+                    waitpid(pid,0,0);
+                    dup2(fd[0], 0);
+                    close(fd[1]);
+                }
+                else {
+                    bgs.push_back(pid);
+                }
             }
         }
     }
@@ -135,9 +137,7 @@ void Shell::kill_idle_children(){
 }
 
 string Shell::get_cmd_prompt(){
-    int idx = past_cmds.size()-1;
     string inputline;
-    string temp;
     int user;
     char username[64];
 
@@ -179,11 +179,19 @@ vector<string> Shell::split(string line, string _seperator){
         
         temp = c;
 
-        if (c == '"') {
+        if (c == '"' && !squoted) {
             dquoted = !dquoted;
+            if (_seperator != " "){
+                count = false;
+                buffy += temp;
+            }
         }
-        else if (c == '\''){
+        else if (c == '\'' && !dquoted){
             squoted = !squoted;
+            if (_seperator != " "){
+                count = false;
+                buffy += temp;
+            }
         }
         else if (temp == _seperator && !count && !dquoted && !squoted){
             strings.push_back(buffy);
@@ -213,30 +221,19 @@ string Shell::trim(const string& str){
 void Shell::start_execution(){
     int in_def = dup(0);
     int out_def = dup(1);
-
     while (true) {
-
         dup2(in_def, 0);
         dup2(out_def, 1);
 
-
-        // check for background process that are done and kill them
         kill_idle_children(); 
 
-        // get string inputs
         string inputline = get_cmd_prompt();
 
-        // if input is exit command we exit the loop
         if (inputline == exit_cmd){break;}
 
-        // if ampersand -> background procces, and remove ampersand
         bg = inputline[inputline.size()-1] == '&';
         inputline = bg ? trim(inputline.substr(0,inputline.size()-1)) : inputline;
 
-        
-        
-        // fork
-        // parse command and if is child execute command, else wait for child or set as background process
         execute_cmd(inputline,bg);
     }
     std::cout<<"Exiting..."<<std::endl;

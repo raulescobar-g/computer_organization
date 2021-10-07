@@ -1,9 +1,10 @@
 #include "shell.cpp"
 
 int main(){
-    Shell shell = Shell("raulescobar");
+    
+    Shell shell = Shell();
 
     shell.start_execution();
-    
+
     return 0;
 }

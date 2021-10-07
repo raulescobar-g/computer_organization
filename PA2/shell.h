@@ -1,4 +1,4 @@
-#ifndef _shell_h_                              /* include file only once */
+#ifndef _shell_h_                              
 #define _shell_h_
 #include <string>
 using namespace std;
@@ -7,13 +7,13 @@ class Shell {
     private:
         vector<int> bgs;
         vector<string> past_cmds;
-        string user;
+        vector<string> paths;
         string exit_cmd;
         vector<string> pipes;
         bool bg;
 
     public:
-        Shell(string _user, string _exit_cmd="exit"): user(_user), exit_cmd(_exit_cmd), bgs(),bg(false), past_cmds(){};
+        Shell(string _exit_cmd="exit"): exit_cmd(_exit_cmd), bgs(),bg(false), past_cmds(), paths(){};
         void execute_cmd(const string& inputline, bool bg);
         void kill_idle_children();
         string get_cmd_prompt();
@@ -21,7 +21,7 @@ class Shell {
         vector<string> split(string line, string seperator=" ");
         string trim(const string& str);
         void start_execution();
-        int execute(string pipes); //implement
+        int execute(string pipes); 
 };
 
 
