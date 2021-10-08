@@ -15,6 +15,7 @@ using namespace std;
 
 /*
 space respecting and double io
+double quotes weird stuff
 extra points stuff
 */
 
