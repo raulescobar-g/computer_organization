@@ -7,13 +7,17 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <vector>
+#include <stack>
 #include <time.h>
 #include "shell.h"
 using namespace std;
+
+#define PATH_MAX 1024
+
 /*
-double quotes special characters stuff
 set past directories to a stack
 username
+space respecting and double io
 extra points stuff
 */
 
@@ -30,6 +34,7 @@ const std::string now() {
 int Shell::execute(string pipes) {
     bool file_io = false;
     int fd;
+    int fd2;
     vector<string> parts = split(pipes); //words
     string slice;
 
@@ -50,17 +55,19 @@ int Shell::execute(string pipes) {
         else if (trim(parts[i]) == ">"){
             file_io = true;
 
-            if (0 > (fd = open(parts[i+1].c_str() , O_CREAT|O_WRONLY|O_TRUNC,S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH))){ 
+            if (0 > (fd2 = open(parts[i+1].c_str() , O_CREAT|O_WRONLY|O_TRUNC,S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH))){ 
                 perror("open");
                 exit(1);
             }
-            dup2(fd,1);
+            dup2(fd2,1);
              
             execute(trim(slice));
             
             slice = "";
         }
-        slice += parts[i] + " ";
+        else {
+            slice += parts[i] + " ";
+        }
     }
 
     if (file_io){
@@ -85,8 +92,8 @@ void Shell::execute_cmd(const string& inputline, bool bg){
             
             if (parts[1] == "-"){
                 if (paths.size() >= 1){
-                    chdir(paths[paths.size() - 1].c_str());
-                    paths.pop_back();
+                    chdir(paths.top().c_str());
+                    paths.pop();
                 }
                 else {
                     cout<<"cd stack empty."<<endl;
@@ -95,7 +102,7 @@ void Shell::execute_cmd(const string& inputline, bool bg){
             else {
                 char cwd[PATH_MAX];
                 getcwd(cwd, sizeof(cwd));
-                paths.push_back(cwd);
+                paths.push(cwd);
                 
                 chdir(parts[1].c_str());
             }
