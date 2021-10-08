@@ -12,6 +12,7 @@
 using namespace std;
 /*
 double quotes special characters stuff
+set past directories to a stack
 username
 extra points stuff
 */
