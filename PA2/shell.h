@@ -22,7 +22,7 @@ class Shell {
         vector<string> split(string line, string seperator=" ");
         string trim(const string& str);
         void start_execution();
-        int execute(string pipes); 
+        int execute(string pipes, bool doubled = false); 
 };
 
 

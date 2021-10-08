@@ -31,7 +31,7 @@ const std::string now() {
     return buf;
 }
 
-int Shell::execute(string pipes) {
+int Shell::execute(string pipes, bool doubled) {
     bool file_io = false;
     int fd;
     int fd2;
@@ -39,21 +39,9 @@ int Shell::execute(string pipes) {
     string slice;
 
     for (int i = 0; i < parts.size(); ++i){
-        if (trim(parts[i]) == "<"){
+        if (trim(parts[i]) == ">"){
             file_io = true;
-
-            if (0 > (fd = open(parts[i+1].c_str() , O_RDONLY))){ 
-                perror("open");
-                exit(1);
-            }
-            dup2(fd,0);
-             
-            execute(trim(slice));
-
-            slice = "";
-        }
-        else if (trim(parts[i]) == ">"){
-            file_io = true;
+            cout<<"here1"<<endl;
 
             if (0 > (fd2 = open(parts[i+1].c_str() , O_CREAT|O_WRONLY|O_TRUNC,S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH))){ 
                 perror("open");
@@ -69,6 +57,29 @@ int Shell::execute(string pipes) {
             slice += parts[i] + " ";
         }
     }
+
+    cout<<"here2"<<endl;
+    for (int i = 0; i < parts.size(); ++i){
+        if (trim(parts[i]) == "<"){
+            file_io = true;
+            cout<<"here2"<<endl;
+
+            if (0 > (fd = open(parts[i+1].c_str() , O_RDONLY))){ 
+                perror("open");
+                exit(1);
+            }
+            dup2(fd,0);
+             
+            execute(trim(slice));
+
+            slice = "";
+        }
+        else if (trim(parts[i]) == ">"){
+            doubled = true;
+        }
+    }
+    
+    
 
     if (file_io){
         return 0;
