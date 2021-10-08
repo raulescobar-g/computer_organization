@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <vector>
+#include <stack>
 #include <time.h>
 #include "shell.h"
 using namespace std;
@@ -15,7 +16,6 @@ using namespace std;
 
 /*
 space respecting and double io
-double quotes weird stuff
 extra points stuff
 */
 
@@ -31,41 +31,54 @@ const std::string now() {
 
 int Shell::execute(string pipes) {
     bool file_io = false;
-    int fd;
-    vector<string> parts = split(pipes); //words
+    int fd, fd2;
+    vector<string> parts = split(pipes); 
     string slice;
+    
 
     for (int i = 0; i < parts.size(); ++i){
-        if (trim(parts[i]) == "<"){
-            file_io = true;
-
-            if (0 > (fd = open(parts[i+1].c_str() , O_RDONLY))){ 
-                perror("open");
-                exit(1);
-            }
-            dup2(fd,0);
-             
-            execute(trim(slice));
-
-            slice = "";
-        }
-        else if (trim(parts[i]) == ">"){
+        if (trim(parts[i]) == ">"){
             file_io = true;
 
             if (0 > (fd = open(parts[i+1].c_str() , O_CREAT|O_WRONLY|O_TRUNC,S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH))){ 
                 perror("open");
                 exit(1);
             }
+
             dup2(fd,1);
-             
             execute(trim(slice));
-            
             slice = "";
+            
         }
         else {
             slice += parts[i] + " ";
         }
     }
+
+    slice = "";
+    for (int i = 0; i < parts.size(); ++i){
+        if (trim(parts[i]) == "<"){
+            file_io = true;
+
+            if (0 > (fd2 = open(parts[i+1].c_str() , O_RDONLY))){ 
+                perror("open");
+                exit(1);
+            }
+            dup2(fd2,0);
+             
+            execute(trim(slice));
+
+            slice = "";
+            
+        }
+        else {
+            slice += parts[i] + " ";
+        }
+        
+    }
+    
+    
+    
 
     if (file_io){
         return 0;
@@ -89,8 +102,8 @@ void Shell::execute_cmd(const string& inputline, bool bg){
             
             if (parts[1] == "-"){
                 if (paths.size() >= 1){
-                    chdir(paths[paths.size() - 1].c_str());
-                    paths.pop_back();
+                    chdir(paths.top().c_str());
+                    paths.pop();
                 }
                 else {
                     cout<<"cd stack empty."<<endl;
@@ -99,7 +112,7 @@ void Shell::execute_cmd(const string& inputline, bool bg){
             else {
                 char cwd[PATH_MAX];
                 getcwd(cwd, sizeof(cwd));
-                paths.push_back(cwd);
+                paths.push(cwd);
                 
                 chdir(parts[1].c_str());
             }

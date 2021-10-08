@@ -1,0 +1,119 @@
+root           1  0.0  0.0 168008 12784 ?        Ss   07:27   0:08 /lib/systemd/systemd --system --deserialize 31
+root           2  0.0  0.0      0     0 ?        S    07:27   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   07:27   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   07:27   0:00 [rcu_par_gp]
+root           6  0.0  0.0      0     0 ?        I<   07:27   0:00 [kworker/0:0H-events_highpri]
+root           9  0.0  0.0      0     0 ?        I<   07:27   0:00 [mm_percpu_wq]
+root          10  0.0  0.0      0     0 ?        S    07:27   0:00 [rcu_tasks_rude_]
+root          11  0.0  0.0      0     0 ?        S    07:27   0:00 [rcu_tasks_trace]
+root          12  0.0  0.0      0     0 ?        S    07:27   0:04 [ksoftirqd/0]
+root          13  0.0  0.0      0     0 ?        I    07:27   0:12 [rcu_sched]
+root          14  0.0  0.0      0     0 ?        S    07:27   0:00 [migration/0]
+root          15  0.0  0.0      0     0 ?        S    07:27   0:00 [idle_inject/0]
+root          16  0.0  0.0      0     0 ?        S    07:27   0:00 [cpuhp/0]
+root          17  0.0  0.0      0     0 ?        S    07:27   0:00 [kdevtmpfs]
+root          18  0.0  0.0      0     0 ?        I<   07:27   0:00 [netns]
+root          19  0.0  0.0      0     0 ?        I<   07:27   0:00 [inet_frag_wq]
+root          20  0.0  0.0      0     0 ?        S    07:27   0:00 [kauditd]
+root          21  0.0  0.0      0     0 ?        S    07:27   0:00 [khungtaskd]
+root          22  0.0  0.0      0     0 ?        S    07:27   0:00 [oom_reaper]
+root          23  0.0  0.0      0     0 ?        I<   07:27   0:00 [writeback]
+root          24  0.0  0.0      0     0 ?        S    07:27   0:02 [kcompactd0]
+root          25  0.0  0.0      0     0 ?        SN   07:27   0:00 [ksmd]
+root          26  0.0  0.0      0     0 ?        SN   07:27   0:00 [khugepaged]
+root          72  0.0  0.0      0     0 ?        I<   07:27   0:00 [kintegrityd]
+root          73  0.0  0.0      0     0 ?        I<   07:27   0:00 [kblockd]
+root          74  0.0  0.0      0     0 ?        I<   07:27   0:00 [blkcg_punt_bio]
+root          75  0.0  0.0      0     0 ?        I<   07:27   0:00 [tpm_dev_wq]
+root          76  0.0  0.0      0     0 ?        I<   07:27   0:00 [ata_sff]
+root          77  0.0  0.0      0     0 ?        I<   07:27   0:00 [md]
+root          78  0.0  0.0      0     0 ?        I<   07:27   0:00 [edac-poller]
+root          79  0.0  0.0      0     0 ?        I<   07:27   0:00 [devfreq_wq]
+root          80  0.0  0.0      0     0 ?        S    07:27   0:00 [watchdogd]
+root          82  0.0  0.0      0     0 ?        I<   07:27   0:02 [kworker/0:1H-kblockd]
+root          84  0.0  0.0      0     0 ?        S    07:27   0:00 [kswapd0]
+root          85  0.0  0.0      0     0 ?        S    07:27   0:00 [ecryptfs-kthrea]
+root          87  0.0  0.0      0     0 ?        I<   07:27   0:00 [kthrotld]
+root          88  0.0  0.0      0     0 ?        I<   07:27   0:00 [acpi_thermal_pm]
+root          89  0.0  0.0      0     0 ?        S    07:27   0:00 [scsi_eh_0]
+root          90  0.0  0.0      0     0 ?        I<   07:27   0:00 [scsi_tmf_0]
+root          91  0.0  0.0      0     0 ?        S    07:27   0:00 [scsi_eh_1]
+root          92  0.0  0.0      0     0 ?        I<   07:27   0:00 [scsi_tmf_1]
+root          94  0.0  0.0      0     0 ?        I<   07:27   0:00 [vfio-irqfd-clea]
+root          96  0.0  0.0      0     0 ?        I<   07:27   0:00 [ipv6_addrconf]
+root         105  0.0  0.0      0     0 ?        I<   07:27   0:00 [kstrp]
+root         108  0.0  0.0      0     0 ?        I<   07:27   0:00 [zswap-shrink]
+root         109  0.0  0.0      0     0 ?        I<   07:27   0:00 [kworker/u3:0]
+root         114  0.0  0.0      0     0 ?        I<   07:27   0:00 [charger_manager]
+root         157  0.0  0.0      0     0 ?        S    07:27   0:00 [scsi_eh_2]
+root         160  0.0  0.0      0     0 ?        I<   07:27   0:00 [scsi_tmf_2]
+root         189  0.0  0.0      0     0 ?        S    07:27   0:01 [jbd2/sda1-8]
+root         190  0.0  0.0      0     0 ?        I<   07:27   0:00 [ext4-rsv-conver]
+root         255  0.0  0.0      0     0 ?        S    07:27   0:02 [irq/18-vmwgfx]
+root         256  0.0  0.0      0     0 ?        I<   07:27   0:00 [ttm_swap]
+root         258  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc0]
+root         260  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc1]
+root         262  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc2]
+root         263  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc3]
+root         264  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc4]
+root         265  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc5]
+root         268  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc6]
+root         269  0.0  0.0      0     0 ?        S    07:27   0:00 [card0-crtc7]
+root         271  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop2]
+root         275  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop3]
+root         276  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop4]
+root         289  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop5]
+root         292  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop6]
+root         303  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop7]
+root         306  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop8]
+root         310  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop10]
+root         311  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop11]
+root         316  0.0  0.0      0     0 ?        S<   07:27   0:00 [loop13]
+root         344  0.0  0.0      0     0 ?        I<   07:27   0:00 [iprt-VBoxWQueue]
+root         358  0.0  0.0      0     0 ?        I<   07:27   0:00 [cryptd]
+root         559  0.0  0.0      0     0 ?        S    07:27   0:00 [jbd2/sda4-8]
+root         560  0.0  0.0      0     0 ?        I<   07:27   0:00 [ext4-rsv-conver]
+root         617  0.0  0.0 249156  8000 ?        Ssl  07:27   0:01 /usr/lib/accountsservice/accounts-daemon
+root         618  0.0  0.0   2556   952 ?        Ss   07:27   0:00 /usr/sbin/acpid
+root         622  0.0  0.0  18128  3056 ?        Ss   07:27   0:00 /usr/sbin/cron -f -P
+root         627  0.0  0.1 346672 20300 ?        Ssl  07:27   0:14 /usr/sbin/NetworkManager --no-daemon
+root         638  0.0  0.1  48180 21472 ?        Ss   07:27   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         646  0.0  0.0 245856  6844 ?        Ssl  07:27   0:00 /usr/libexec/power-profiles-daemon
+root         656  0.0  0.0 245664  7016 ?        Ssl  07:27   0:00 /usr/libexec/switcheroo-control
+root         657  0.0  0.0  22948  8656 ?        Ss   07:27   0:00 /lib/systemd/systemd-logind
+root         658  0.0  0.0 394420 13580 ?        Ssl  07:27   0:00 /usr/libexec/udisks2/udisksd
+root         669  0.0  0.0  14740  5208 ?        Ss   07:27   0:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+root         737  0.0  0.1 126288 23760 ?        Ssl  07:27   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root        1028  0.0  0.0 250400  9152 ?        Ssl  07:28   0:00 /usr/sbin/gdm3
+root        1177  0.0  0.0 258356  8616 ?        Ssl  07:28   0:01 /usr/libexec/upowerd
+root        1270  0.0  0.0      0     0 ?        S<   07:28   0:00 [loop14]
+root        1368  0.0  0.3 455664 63200 ?        Ssl  07:28   0:13 /usr/libexec/packagekitd
+root        1551  0.0  0.0 325772 11392 ?        Sl   07:28   0:00 gdm-session-worker [pam/gdm-password]
+osboxes     1746  0.1  0.6 509268 105052 ?       Sl   07:28   1:35 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.ZRV290 -listen 4 -listen 5 -displayfd 6 -initfd 7
+root        2073  0.0  0.0  86096   984 ?        S    07:28   0:00 [VBoxDRMClient]
+root        2086  0.0  0.0   2616  2008 ?        Ss   07:28   0:00 fusermount -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+root       37055  0.0  0.1  48592 20956 ?        S<s  09:40   0:00 /lib/systemd/systemd-journald
+root       39161  0.0  0.0 252340 11432 ?        Ssl  09:41   0:00 /usr/libexec/polkitd --no-debug
+root       39167  0.0  0.0 316452 11264 ?        Ssl  09:41   0:00 /usr/sbin/ModemManager
+avahi      42875  0.0  0.0   7252   352 ?        S    09:42   0:00 avahi-daemon: chroot helper
+root       77707  0.0  0.0      0     0 ?        I<   09:48   0:00 [xfsalloc]
+root       77708  0.0  0.0      0     0 ?        I<   09:48   0:00 [xfs_mru_cache]
+root       77711  0.0  0.0      0     0 ?        S    09:48   0:00 [jfsIO]
+root       77712  0.0  0.0      0     0 ?        S    09:48   0:00 [jfsCommit]
+root       77713  0.0  0.0      0     0 ?        S    09:48   0:00 [jfsSync]
+root       79391  0.0  0.0  23472  6232 ?        Ss   09:48   0:00 /lib/systemd/systemd-udevd
+root      111688  0.0  0.0  80664 14024 ?        Ss   19:20   0:00 /usr/sbin/cupsd -l
+root      111689  0.0  0.0 179076 12848 ?        Ssl  19:20   0:00 /usr/sbin/cups-browsed
+root      118751  0.0  0.0   6716  4592 ?        Ss   19:21   0:00 /usr/sbin/apache2 -k start
+root      141726  0.0  0.0      0     0 ?        I    20:27   0:03 [kworker/0:2-events]
+root      144622  0.0  0.0      0     0 ?        S<   21:18   0:00 [loop0]
+root      144652  0.1  0.1 660736 32464 ?        Ssl  21:19   0:06 /usr/lib/snapd/snapd
+root      145146  0.0  0.0      0     0 ?        S<   21:19   0:00 [loop12]
+root      145352  0.0  0.0      0     0 ?        S<   21:19   0:00 [loop15]
+root      145639  0.0  0.0      0     0 ?        S<   21:19   0:00 [loop16]
+root      145731  0.0  0.0      0     0 ?        S<   21:19   0:00 [loop17]
+root      146306  0.0  0.0      0     0 ?        I    21:51   0:00 [kworker/0:1]
+root      146945  0.0  0.0      0     0 ?        I    22:05   0:00 [kworker/u2:0-events_unbound]
+root      147369  0.0  0.0      0     0 ?        I    22:11   0:00 [kworker/u2:1-ext4-rsv-conversion]
+root      147851  0.0  0.0      0     0 ?        I    22:20   0:00 [kworker/u2:2-ext4-rsv-conversion]
+root      148017  0.0  0.0      0     0 ?        I    22:22   0:00 [kworker/u2:3-events_unbound]

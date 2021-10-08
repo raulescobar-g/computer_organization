@@ -1,13 +1,14 @@
 #ifndef _shell_h_                              
 #define _shell_h_
 #include <string>
+#include <stack>
 using namespace std;
 
 class Shell {
     private:
         vector<int> bgs;
         vector<string> past_cmds;
-        vector<string> paths;
+        stack<string> paths;
         string exit_cmd;
         vector<string> pipes;
         bool bg;
