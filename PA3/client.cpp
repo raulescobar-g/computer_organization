@@ -204,7 +204,7 @@ int main(int argc, char *argv[]){
 		gettimeofday(&start, NULL);
 		handle_request(chan,p,e,m,t,filename);
 		gettimeofday(&end,NULL);
-		int microseconds = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec)));
+		int microseconds = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
 		cout<<microseconds<<endl;
 	}
 
