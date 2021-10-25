@@ -90,7 +90,6 @@ vector<string> get_file_data(const string& path, const string& file){
 		char buf[PATH_MAX];
 		readlink(full_file.c_str(), buf, sizeof(buf));
 		string link = "-> " + (string) buf;
-		
 		line.push_back(link);
 	}
 
@@ -131,9 +130,9 @@ int main(int argc, char *argv[]){
     int opt;
 	vector< vector<string> > ls_matrix;
 	// get parameters 
-	while ((opt = getopt(argc, argv, "p:")) != -1) {
+	while ((opt = getopt(argc, argv, "l:")) != -1) {
 		switch (opt) {
-			case 'p':
+			case 'l':
 				path = (string) optarg;
 				break;
 			default:
