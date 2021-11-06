@@ -184,7 +184,7 @@ void handle_process_loop(FIFORequestChannel *channel){
 		}
 		process_request(channel, r);
 	}
-	delete buffer;
+	delete[] buffer;
 	delete channel;
 }
 

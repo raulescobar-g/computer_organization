@@ -18,15 +18,14 @@ private:
 	2. The other alternative is keeping a char* for the sequence and an integer length (i.e., the items can be of variable length), which is more complicated.*/
 
 	// add necessary synchronization variables (e.g., sempahores, mutexes) and variables
+	Semaphore full;
+	Semaphore empty;
+	Semaphore mutex;
 
 
 public:
-	BoundedBuffer(int _cap){
-
-	}
-	~BoundedBuffer(){
-
-	}
+	BoundedBuffer(int _cap): cap(_cap), q(), mutex(1), empty(cap), full(0){}
+	~BoundedBuffer(){}
 
 	void push(vector<char> data){
 		// follow the class lecture pseudocode
@@ -34,8 +33,11 @@ public:
 		//1. Perform necessary waiting (by calling wait on the right semaphores and mutexes),
 		//2. Push the data onto the queue
 		//3. Do necessary unlocking and notification
-		
-		
+		empty.P();
+		mutex.P();
+		q.push(data);
+		mutex.V();
+		full.V();
 	}
 
 	vector<char> pop(){
@@ -43,6 +45,13 @@ public:
 		//2. Pop the front item of the queue. 
 		//3. Unlock and notify using the right sync variables
 		//4. Return the popped vector
+		full.P();
+		mutex.P();
+		vector<char> item = q.front();
+		q.pop();
+		mutex.V();
+		empty.V();
+		return item;
 	}
 };
 
