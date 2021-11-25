@@ -1,6 +1,6 @@
 #ifndef Histogram_h
 #define Histogram_h
-
+#include <mutex>
 #include <queue>
 #include <string>
 #include <vector>
