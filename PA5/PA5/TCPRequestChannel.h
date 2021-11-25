@@ -46,7 +46,7 @@ class TCPRequestChannel{
                     perror("server: socket");
                     exit(1);
                 }
-                if (bind(sockfd, serv->ai_addr, serv->ai_addrlen) == -1) {
+                if (::bind(sockfd, serv->ai_addr, serv->ai_addrlen) == -1) {
                     close(sockfd);
                     perror("server: bind");
                     exit(1);
@@ -91,7 +91,9 @@ class TCPRequestChannel{
         }
 
         /* This is used by the server to create a channel out of a newly accepted client socket. Note that an accepted client socket is ready for communication */
-        TCPRequestChannel(int);
+        TCPRequestChannel(int _sockfd){
+            sockfd = _sockfd;
+        }
         /* destructor */
         ~TCPRequestChannel() {close(sockfd);}
 

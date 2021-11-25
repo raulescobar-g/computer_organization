@@ -181,7 +181,7 @@ int main(int argc, char *argv[]){
 	struct sockaddr_storage their_addr; // connector's address information
     socklen_t sin_size;
 	buffercapacity = MAX_MESSAGE;
-	string portno = "";
+	string portno = "8080";
 	int opt;
 	while ((opt = getopt(argc, argv, "m:r:")) != -1) {
 		switch (opt) {
@@ -209,7 +209,7 @@ int main(int argc, char *argv[]){
             perror("accept");
             continue;
         }
-		TCPRequestChannel * chan = new TCPRequestChannel("",portno);
+		TCPRequestChannel * chan = new TCPRequestChannel(control_channel->getfd());
         thread t = thread(handle_process_loop, ref(chan)); //maybe make chan on heap because it gets deleted in handle process loop
         t.detach(); 
     }
