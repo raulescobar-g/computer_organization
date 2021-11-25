@@ -27,6 +27,7 @@ int64 filelength(const string& filename,FIFORequestChannel& chan){
 }
 
 void get_file(const int m, const int64 filelen, const string& filename, const int newfile, FIFORequestChannel& chan){
+
 	for (int i = 0; i < (filelen/m); ++i){
 		FileRequest fm2(i*m, m);
 		int poopy_len = sizeof(FileRequest) + filename.size()+1;
@@ -96,10 +97,21 @@ void k_requests(const int p, FIFORequestChannel& chan){
 	}
 }
 
-void handle_request(FIFORequestChannel& chan1, const int p, const int e, const int m, const double t, const string& filename){
+void handle_request(FIFORequestChannel& chan1, const int p, int e, const int m, const double t, const string& filename){
 	if (filename == "" && t >= 0.0) {
-		double reply = get_data(p,t,e,chan1); // abstracted out the data query
-		isValidResponse(&reply) ? cout << "For person " << p <<", at time " << t << ", the value of ecg "<< e <<" is " << reply << endl: cout<<"Not valid response"<<endl;
+		double reply;
+		if (e == -1){
+			e = 1;
+			reply = get_data(p,t,e,chan1); // abstracted out the data query
+			isValidResponse(&reply) ? cout << "For person " << p <<", at time " << t << ", the value of ecg "<< e <<" is " << reply << endl: cout<<"Not valid response"<<endl;
+			e = 2;
+			reply = get_data(p,t,e,chan1); // abstracted out the data query
+			isValidResponse(&reply) ? cout << "For person " << p <<", at time " << t << ", the value of ecg "<< e <<" is " << reply << endl: cout<<"Not valid response"<<endl;
+		}
+		else {
+			reply = get_data(p,t,e,chan1); // abstracted out the data query
+			isValidResponse(&reply) ? cout << "For person " << p <<", at time " << t << ", the value of ecg "<< e <<" is " << reply << endl: cout<<"Not valid response"<<endl;
+		}
 	}
 	else if (filename == "" && t < 0) {
 		// here we go into a loop making 1k requests and putting in x1.csv file
@@ -205,7 +217,7 @@ int main(int argc, char *argv[]){
 		handle_request(chan,p,e,m,t,filename);
 		gettimeofday(&end,NULL);
 		int microseconds = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
-		cout<<microseconds<<endl;
+		cout<<"Time taken: "<<microseconds<<endl;
 	}
 
 	// loop through children channels and close them, then close the control channel and wait for server chil process

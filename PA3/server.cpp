@@ -182,6 +182,7 @@ void handle_process_loop(FIFORequestChannel *channel){
 		}
 		Request* r = (Request *) buffer;
 		if (r->getType() == QUIT_REQ_TYPE){
+			cout<<"Connection closed by client"<<endl;
 			break;
 			// note that QUIT_MSG does not get a reply from the server
 		}

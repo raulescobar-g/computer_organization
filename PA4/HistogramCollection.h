@@ -60,7 +60,7 @@ public:
     }
 
     // modification function with idx and value to be called in histogram threads
-    void update(int idx, int value){
+    void update(int idx, double value){
         hists[idx-1]->update(value);
     }
 
