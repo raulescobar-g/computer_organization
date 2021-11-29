@@ -41,14 +41,13 @@ void worker_thread_function(BoundedBuffer& reqbuf, BoundedBuffer& resbuf, TCPReq
 
 			if (requested.person == 0){											// if receive a pseudo quit message "patient 0"
 				Request q(QUIT_REQ_TYPE);
-				chan.cwrite(&q, sizeof(Request));								// we quit from inside the worker thread
+				chan.cwrite(&q, sizeof(q));								// we quit from inside the worker thread
 				break;
 			}
 
 			packet response_packet(requested.person, (double)0);
-			vector<char> buf(sizeof(packet));									// lazy define vector and data struct
-
-			chan.cwrite(&requested, sizeof(DataRequest));						// make request
+			vector<char> buf(sizeof(packet));
+			chan.cwrite(&requested, sizeof(requested));						// make request
 			chan.cread(&response_packet.reply, sizeof(double));					// read reply
 								
 			memcpy(buf.data(), &response_packet, sizeof(packet));				// put packet of data into buffer

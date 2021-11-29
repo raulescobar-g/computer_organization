@@ -209,7 +209,8 @@ int main(int argc, char *argv[]){
             perror("accept");
             continue;
         }
-		TCPRequestChannel * chan = new TCPRequestChannel(control_channel->getfd());
+		
+		TCPRequestChannel * chan = new TCPRequestChannel(client_socket);
         thread t = thread(handle_process_loop, ref(chan)); //maybe make chan on heap because it gets deleted in handle process loop
         t.detach(); 
     }
